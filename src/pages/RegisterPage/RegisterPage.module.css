@@ -1,0 +1,17 @@
+.register {
+    font-size: 30px;
+}
+
+.title {
+    text-align: center;
+    color: rgb(56, 107, 177);
+}
+
+.alternative {
+    text-align: center;
+}
+
+.link {
+    color: darkblue;
+    cursor: pointer;
+}

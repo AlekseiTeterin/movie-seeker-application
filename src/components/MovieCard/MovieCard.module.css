@@ -1,0 +1,65 @@
+.smallCard {
+    position: relative;
+    width: 270px;
+    height: 370px;
+    border: 5px solid rgb(45, 110, 231);
+    border-radius: 20px;
+    margin-top: 100px;
+}
+
+.poster {
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+.rating {
+    position: absolute;
+    padding: 10px 10px;
+    color: rgb(251, 243, 3);
+    z-index: 1;
+}
+
+.heart {
+    position: absolute;
+    padding-left: 195px;
+    padding-top: 10px;
+    z-index: 1;
+}
+
+.description {
+    position: absolute;
+    padding-top: 270px;
+    display: block;
+    margin-left: 20px;
+    justify-content: space-between;
+    flex-direction: column;
+    z-index: 1;
+}
+.title {
+    width: 230px;
+    margin: auto;
+    height: 50px;
+    font-size: 19px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 600;
+    color: rgb(85, 254, 232);
+    text-align: left;
+    margin: 0;
+}
+
+.release {
+    width: 230px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 0;
+    font-size: 19px;
+    font-weight: 600;
+    color: rgb(85, 254, 232);
+}
+
+.smallCard :hover {
+    opacity: 0.9;
+}
