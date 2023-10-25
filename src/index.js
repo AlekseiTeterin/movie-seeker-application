@@ -6,22 +6,23 @@ import App from './App';
 import store from './store';
 import './index.css';
 import { IsAuthContextProvider } from './store/IsAuthContext';
+import './firebase'
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 
 function Main() {
-    return (
-        <React.StrictMode>
-            <Provider store={store}>
-                    <IsAuthContextProvider>
-                        <BrowserRouter>
-                            <App />
-                        </BrowserRouter>
-                    </IsAuthContextProvider>
-            </Provider>
-        </React.StrictMode>
-    );
+  return (
+    <React.StrictMode>
+      <Provider store={store}>
+        <IsAuthContextProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </IsAuthContextProvider>
+      </Provider>
+    </React.StrictMode>
+  );
 }
 
 root.render(<Main />);
