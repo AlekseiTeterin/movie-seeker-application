@@ -7,6 +7,9 @@ export const movieApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: 'https://api.kinopoisk.dev',
         method: 'GET',
+        mode: 'cors',
+        'Cross-Origin-Resource-Policy': 'cross-origin',
+        'Access-Control-Allow-Origin': '*',
         headers: {
             'X-API-KEY': key,
             Accept: 'application/json',
