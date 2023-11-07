@@ -17,6 +17,7 @@ import Slider from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import styles from './ControlIcons.module.css';
+import { PLAYER_SPEED_RATE_VALUES_ARRAY } from '../../../CONSTANTS';
 
 const PrettoSlider = styled(Slider)({
   height: 5,
@@ -197,7 +198,7 @@ function ControlIcons({
             </IconButton>
 
             <Typography style={{ color: '#fff', paddingTop: '5px' }}>
-              {volume * 100}
+              {Math.round(volume * 100)}
             </Typography>
             <Slider
               min={0}
@@ -233,7 +234,7 @@ function ControlIcons({
             }}
           >
             <Grid container direction='column-reverse'>
-              {[0.5, 1, 1.5, 2].map((rate) => (
+              {PLAYER_SPEED_RATE_VALUES_ARRAY.map((rate) => (
                 <Button variant='text' onClick={() => playRate(rate)}>
                   <Typography
                     color={rate === playerbackRate ? 'secondary' : 'default'}

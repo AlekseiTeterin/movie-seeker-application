@@ -1,29 +1,35 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import Container from '@mui/material/Container';
 import ReactPlayer from 'react-player';
 import { useSelector, useDispatch } from 'react-redux';
 import screenfull from 'screenfull';
 import ControlIcons from './playerComponents/ControlIcons';
 import styles from './vPlayer.module.css';
-import { changePlayingStatus } from '../../store/slices/playerSlice';
+import { SAFE_VOLUME_LEVEL } from '../../CONSTANTS';
+import {
+  changeMutingStatus,
+  changePlayingStatus,
+  setMutingStatus,
+  changeVolumeLevel,
+  setPlayedTime,
+  setBackRate,
+  setSeeking,
+  setPlayedTimeFromObject,
+} from '../../store/slices/playerSlice';
 import secondsToRequiredFormat from '../../utils/secondsToRequiredFormat';
 
 function VideoPlayer() {
   const dispatch = useDispatch();
   const isPlaying = useSelector((state) => state.player.isPlaying);
+  const mute = useSelector((state) => state.player.mute);
+  const volume = useSelector((state) => state.player.volume);
+  const seeking = useSelector((state) => state.player.seeking);
+  const played = useSelector((state) => state.player.played);
+  const playerbackRate = useSelector((state) => state.player.playerBackRate);
 
-  const [playerState, setPlayerState] = useState({
-    mute: true,
-    volume: 0.5,
-    playerbackRate: 1.0,
-    played: 0,
-    seeking: false,
-  });
   const playerRef = useRef(null);
   const playerDivRef = useRef(null);
-
-  const { mute, volume, playerbackRate, played } = playerState;
 
   const currentPlayerTime = playerRef.current
     ? playerRef.current.getCurrentTime()
@@ -38,6 +44,18 @@ function VideoPlayer() {
 
   const handlePlayAndPauseChange = () => {
     dispatch(changePlayingStatus());
+  };
+
+  const handleVolumeChangeOrSeek = (e, newValue) => {
+    dispatch(changeVolumeLevel(newValue));
+    dispatch(setMutingStatus(newValue === 0));
+  };
+
+  const handleMutingUnmuting = () => {
+    if (volume === 0) {
+      dispatch(changeVolumeLevel(SAFE_VOLUME_LEVEL));
+    }
+    dispatch(changeMutingStatus());
   };
 
   const handleRewind = () => {
@@ -55,140 +73,28 @@ function VideoPlayer() {
   };
 
   const handlePlayerProgress = (state) => {
-    if (!playerState.seeking) {
-      setPlayerState({ ...playerState, ...state });
+    if (!seeking) {
+      dispatch(setPlayedTimeFromObject(state));
     }
   };
 
   const handlePlayerSeek = (e, newValue) => {
-    console.log('this one', parseFloat(newValue));
-    setPlayerState({ ...playerState, played: parseFloat(newValue / 100) });
+    dispatch(setPlayedTime(parseFloat(newValue / 100)));
     playerRef.current.seekTo(played, 'fraction');
   };
 
   const handlePlayerMouseSeekUp = () => {
-    setPlayerState({ ...playerState, seeking: false });
+    dispatch(setSeeking(false));
     playerRef.current.seekTo(played);
   };
 
-  const handleMuting = () => {
-    setPlayerState({ ...playerState, mute: !playerState.mute });
-  };
-
-  // function for the `onChange` event
-  const handleVolumeChange = (e, newValue) => {
-    setPlayerState({
-      ...playerState,
-      volume: newValue / 100,
-      mute: newValue === 0,
-    });
-  };
-
-  // function for the `onChangeCommitted` event
-  const handleVolumeSeek = (e, newValue) => {
-    setPlayerState({
-      ...playerState,
-      volume: newValue / 100,
-      mute: newValue === 0,
-    });
-  };
-
   const handlePlayerRate = (rate) => {
-    setPlayerState({ ...playerState, playerbackRate: rate });
+    dispatch(setBackRate(rate));
   };
 
   const handleFullScreenMode = () => {
     screenfull.toggle(playerDivRef.current);
   };
-
-  // const [playerState, setPlayerState] = useState({
-  //   isPlaying: true,
-  //   mute: true,
-  //   volume: 0.5,
-  //   playerbackRate: 1.0,
-  //   played: 0,
-  //   seeking: false,
-  // });
-  // const playerRef = useRef(null);
-  // const playerDivRef = useRef(null);
-
-  // const { isPlaying, mute, volume, playerbackRate, played } = playerState;
-
-  // const currentPlayerTime = playerRef.current
-  //   ? playerRef.current.getCurrentTime()
-  //   : '00:00';
-  // const movieDuration = playerRef.current
-  //   ? playerRef.current.getDuration()
-  //   : '00:00';
-  // const playedTime = secondsToRequiredFormat(currentPlayerTime);
-  // const fullMovieTime = secondsToRequiredFormat(movieDuration);
-
-  // const handlePlayAndPauseChange = () => {
-  //   setPlayerState({
-  //     ...playerState,
-  //     isPlaying: !playerState.isPlaying,
-  //   });
-  // };
-
-  // const handleRewind = () => {
-  //   playerRef.current.seekTo(
-  //     playerRef.current.getCurrentTime() - 10,
-  //     'seconds'
-  //   );
-  // };
-
-  // const handleFastForward = () => {
-  //   playerRef.current.seekTo(
-  //     playerRef.current.getCurrentTime() + 30,
-  //     'seconds'
-  //   );
-  // };
-
-  // const handlePlayerProgress = (state) => {
-  //   if (!playerState.seeking) {
-  //     setPlayerState({ ...playerState, ...state });
-  //   }
-  // };
-
-  // const handlePlayerSeek = (newValue) => {
-  //   setPlayerState({ ...playerState, played: parseFloat(newValue / 100) });
-  //   playerRef.current.seekTo(parseFloat(newValue / 100));
-  // };
-
-  // const handlePlayerMouseSeekUp = (newValue) => {
-  //   setPlayerState({ ...playerState, seeking: false });
-  //   playerRef.current.seekTo(newValue / 100);
-  // };
-
-  // const handleMuting = () => {
-  //   setPlayerState({ ...playerState, muted: !playerState.muted });
-  // };
-
-  // // function for the `onChange` event
-  // const handleVolumeChange = (e, newValue) => {
-  //   setPlayerState({
-  //     ...playerState,
-  //     volume: parseFloat(newValue / 100),
-  //     mute: newValue === 0,
-  //   });
-  // };
-
-  // // function for the `onChangeCommitted` event
-  // const handleVolumeSeek = (e, newValue) => {
-  //   setPlayerState({
-  //     ...playerState,
-  //     volume: parseFloat(newValue / 100),
-  //     mute: newValue === 0,
-  //   });
-  // };
-
-  // const handlePlayerRate = (rate) => {
-  //   setPlayerState({ ...playerState, playerbackRate: rate });
-  // };
-
-  // const handleFullScreenMode = () => {
-  //   screenfull.toggle(playerDivRef.current);
-  // };
 
   return (
     <>
@@ -200,7 +106,7 @@ function VideoPlayer() {
           <ReactPlayer
             width='100%'
             height='100%'
-            url='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4'
+            url='https://www.youtube.com/watch?v=Z8qU0GdW88Q'
             ref={playerRef}
             playing={isPlaying}
             volume={volume}
@@ -219,11 +125,11 @@ function VideoPlayer() {
           onSeekMouseUp={handlePlayerMouseSeekUp}
           playTime={playedTime}
           fullMovieTime={fullMovieTime}
-          muting={handleMuting}
+          muting={handleMutingUnmuting}
           muted={mute}
           volume={volume}
-          volumeChange={handleVolumeChange}
-          volumeSeek={handleVolumeSeek}
+          volumeChange={handleVolumeChangeOrSeek}
+          volumeSeek={handleVolumeChangeOrSeek}
           playerbackRate={playerbackRate}
           playRate={handlePlayerRate}
           fullScreenMode={handleFullScreenMode}
