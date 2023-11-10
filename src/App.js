@@ -1,5 +1,5 @@
-import { React, lazy, Suspense} from 'react';
-import './App.css';
+import { React, lazy, Suspense } from 'react';
+import './App.scss';
 import { Routes, Route } from 'react-router-dom';
 import BaseLayout from './components/BaseLayout/BaseLayout';
 
@@ -13,7 +13,7 @@ const FavouritePage = lazy(() => import('./pages/FavouritePage/FavouritePage'));
 const VideoPlayer = lazy(() => import('./pages/vPlayer/VideoPlayer'));
 
 function App() {
-    
+
     return (
         <div className='App'>
             <BaseLayout />

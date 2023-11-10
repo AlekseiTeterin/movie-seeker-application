@@ -17,6 +17,6 @@ function IsAuthContextProvider({ children }) {
             {children}
         </IsAuthContext.Provider>
     );
-}
+};
 
 export { IsAuthContext, IsAuthContextProvider };

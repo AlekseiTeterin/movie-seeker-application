@@ -4,9 +4,10 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import store from './store';
-import './index.css';
+import './index.scss';
 import { IsAuthContextProvider } from './store/IsAuthContext';
 import './firebase'
+import { ThemeContextProvider } from './store/ThemeContext';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -16,9 +17,11 @@ function Main() {
     <React.StrictMode>
       <Provider store={store}>
         <IsAuthContextProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
+          <ThemeContextProvider>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </ThemeContextProvider>
         </IsAuthContextProvider>
       </Provider>
     </React.StrictMode>

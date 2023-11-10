@@ -14,7 +14,7 @@
 .links {
     display: flex;
     justify-content: space-between;
-    color: rgb(15, 75, 112);
+    color: var(--layout-text-color);
     font-weight: 600;
     font-size: 25px;
     gap: 25px;
@@ -31,7 +31,7 @@
 }
 
 .logoText {
-    color: rgb(151, 188, 214);
+    color: var(--layout-text-color);
     margin: auto;
     font-weight: 600;
     font-style: italic;

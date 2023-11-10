@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+.light-mode {
+  --main-page-bg-image: url('./images/backgroundGlass.jpg');
+  --layout-text-color: #0f4b70;
+}
+
+.dark-mode {
+  --main-page-bg-image: url('./images/backgroundDark.jpg');
+  --layout-text-color: #ffffff;
+}
