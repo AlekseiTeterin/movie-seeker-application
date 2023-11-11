@@ -1,0 +1,58 @@
+.header {
+  height: 10vh;
+}
+
+.navigationBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0 15px;
+  height: 100%;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  color: var(--layout-text-color);
+  font-weight: 600;
+  font-size: 25px;
+  gap: 25px;
+}
+
+.imgWrapper {
+  display: flex;
+  margin: 5px;
+}
+
+.img {
+  height: 70px;
+  width: 100px;
+}
+
+.logoText {
+  color: var(--layout-text-color);
+  margin: auto;
+  font-weight: 600;
+  font-style: italic;
+  padding-left: 20px;
+  font-size: 25px;
+}
+
+.sun {
+  margin-top: 7px;
+  position: absolute;
+  margin-left: 24px;
+  z-index: 10;
+}
+
+.moon {
+  margin-top: 6px;
+  position: absolute;
+  margin-left: 4px;
+  z-index: 10;
+}
+
+.user {
+  color: rgb(66, 90, 27);
+}

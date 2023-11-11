@@ -15,9 +15,9 @@ const ButtonSwitch = styled((props) => (
     transitionDuration: '300ms',
     '&.Mui-checked': {
       transform: 'translateX(20px)',
-      color: '#10CCC3',
+      color: '#18547e',
       '& + .MuiSwitch-track': {
-        backgroundColor: theme.palette.mode === 'dark' ? '#2ECA45' : '#9ae6e3',
+        backgroundColor: '#7ac7e6',
         opacity: 1,
         border: 0,
       },
@@ -46,7 +46,7 @@ const ButtonSwitch = styled((props) => (
   },
   '& .MuiSwitch-track': {
     borderRadius: 7,
-    backgroundColor: theme.palette.mode === 'light' ? '#9E9E9E' : '#39393D',
+    backgroundColor: '#6d738a',
     opacity: 1,
     transition: theme.transitions.create(['background-color'], {
       duration: 500,

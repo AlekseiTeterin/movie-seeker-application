@@ -1,10 +1,12 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-const-assign */
-import React, { useContext } from 'react';
+import React, { Fragment, useContext } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import style from './BaseLayout.module.css';
+import style from './BaseLayout.module.scss';
+import moon from '../../images/moon.svg';
+import sunny from '../../images/sun.svg';
 import { IsAuthContext } from '../../store/IsAuthContext';
 import { removeCurrentUser } from '../../store/slices/currentUserSlice';
 import { setFavourite } from '../../store/slices/favouriteSlice';
@@ -35,6 +37,11 @@ function IsAuth() {
   return (
     <ul className={style.links}>
       <li>
+        {isThemeLight ? (
+          <img src={sunny} className={style.sun} height='16px' alt='light' />
+        ) : (
+          <img src={moon} className={style.moon} height='18px' alt='dark' />
+        )}
         <ButtonSwitch checked={isThemeLight} onChange={changeThemeHandler} />
       </li>
       {!isAuth ? (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import style from './BaseLayout.module.css';
+import style from './BaseLayout.module.scss';
 import IsAuth from './IsAuth';
 import film from '../../images/film.svg';
 import { setCurrentUser } from '../../store/slices/currentUserSlice';

@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import ConfirmPasswordField from './FormsComponents/ConfirmPasswordField';
 import NameField from './FormsComponents/NameField';
 import PasswordField from './FormsComponents/PasswordField';
-import style from './FormsStyle.module.css';
+import style from './FormsStyle.module.scss';
 import isOccupiedName from '../../utils/isOccupiedName';
 
 function RegisterForm({ handleSubmit, buttonName }) {
