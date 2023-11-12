@@ -27,6 +27,9 @@ li {
   --layout-text-color: #0f4b70;
   --input-bg-color: #ebebeb;
   --forms-bg-color: rgb(151, 173, 199, 0.6);
+  --border-color: rgb(45, 110, 231);
+  --rating-text-color: rgb(251, 243, 3);
+  --card-info-text-color: rgb(251 249 240);
 }
 
 .dark-mode {
@@ -35,4 +38,7 @@ li {
   --layout-text-color: #ffffff;
   --input-bg-color: #2c38459a;
   --forms-bg-color: rgb(44, 56, 69, 0.6);
+  --border-color: rgb(45, 110, 231);
+  --rating-text-color: rgb(251, 243, 3);
+  --card-info-text-color: rgb(251 249 240);
 }
