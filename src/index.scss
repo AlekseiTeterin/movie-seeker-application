@@ -22,14 +22,18 @@ li {
 }
 
 .light-mode {
-  --main-page-bg-image: url('./images/backgroundGlass.jpg');
+  --main-page-bg-image: url('./images/backgroundBetonTekstura.jpg');
 
   --layout-text-color: #0f4b70;
   --input-bg-color: #ebebeb;
-  --forms-bg-color: rgb(151, 173, 199, 0.6);
-  --border-color: rgb(45, 110, 231);
+  --forms-bg-color: rgb(181, 190, 199, 0.6);
+  --border-color: rgb(45, 110, 231, 0.75);
   --rating-text-color: rgb(251, 243, 3);
   --card-info-text-color: rgb(251 249 240);
+  --history-text-color: #07081c;
+  --user-name-color: #292c31;
+  --main-card-text-color: #060b0f;
+  --remove-button-color: #742d2d;
 }
 
 .dark-mode {
@@ -37,8 +41,12 @@ li {
 
   --layout-text-color: #ffffff;
   --input-bg-color: #2c38459a;
-  --forms-bg-color: rgb(44, 56, 69, 0.6);
-  --border-color: rgb(45, 110, 231);
+  --forms-bg-color: rgb(84, 101, 107, 0.6);
+  --border-color: rgb(40, 44, 61, 0.75);
   --rating-text-color: rgb(251, 243, 3);
   --card-info-text-color: rgb(251 249 240);
+  --history-text-color: #e2f2ff;
+  --user-name-color: #292c31;
+  --main-card-text-color: #e2f2ff;
+  --remove-button-color: #582d2d;
 }

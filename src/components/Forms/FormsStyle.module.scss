@@ -1,5 +1,5 @@
 .container {
-  border: 2px solid rgba(47, 78, 234, 0.745);
+  border: 2px solid var(--border-color);
   border-radius: 15px;
   width: 30vw;
   background-color: var(--forms-bg-color);
@@ -12,3 +12,4 @@ input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
   -webkit-text-fill-color: var(--layout-text-color);
 }
+

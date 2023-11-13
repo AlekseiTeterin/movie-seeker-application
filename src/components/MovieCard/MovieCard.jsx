@@ -14,7 +14,6 @@ import {
   addToFavourite,
   deleteFromFavourite,
 } from '../../store/slices/favouriteSlice';
-import ShowButtonFavourite from '../UI/ShowButtonFavourite';
 
 function MovieCard({ movieId }) {
   const { data, isLoading, error } = useGetMovieByIdQuery(movieId);
@@ -22,6 +21,14 @@ function MovieCard({ movieId }) {
   const fav = useSelector((state) => state.favourite.favourites);
   const dispatch = useDispatch();
   const isFavourite = fav.includes(movieId);
+  const onHeartClickHandler = (e) => {
+    if (isFavourite) {
+      dispatch(deleteFromFavourite(data.id));
+    } else {
+      dispatch(addToFavourite(data.id));
+    }
+    e.stopPropagation();
+  };
 
   if (error) {
     return <div className={style.smallCard}>Something error</div>;
@@ -31,26 +38,23 @@ function MovieCard({ movieId }) {
   }
   return (
     <div className={style.smallCard}>
+      <button
+        className={style.heart}
+        type='button'
+        onClick={onHeartClickHandler}
+        key={data.id}
+      >
+        {isAuth &&
+          (isFavourite ? (
+            <img src={fillHeart} alt='red heart' width={40} />
+          ) : (
+            <img src={heart} alt='black heart' width={40} />
+          ))}
+      </button>
       <Link to={`/movie/${data.id}`}>
         <div className={style.posterPlus}>
           <div className={style.ratingAndFavourite}>
             <div className={style.rating}>{data.rating.kp?.toFixed(2)} kp</div>
-            <div
-              className={style.heart}
-              onKeyDown={() =>
-                isAuth
-                  ? dispatch(addToFavourite(data.id))
-                  : dispatch(deleteFromFavourite(data.id))
-              }
-              key={data.id}
-            >
-              {isAuth &&
-                (isFavourite ? (
-                  <img src={fillHeart} alt='red heart' width={40} />
-                ) : (
-                  <img src={heart} alt='black heart' width={40} />
-                ))}
-            </div>
           </div>
           <img
             className={style.poster}
@@ -65,7 +69,6 @@ function MovieCard({ movieId }) {
           </div>
         </div>
       </Link>
-      <ShowButtonFavourite filmId={data.id} />
     </div>
   );
 }

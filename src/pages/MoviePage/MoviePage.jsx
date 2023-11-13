@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import style from './MoviePage.module.css';
+import style from './MoviePage.module.scss';
 import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary';
 import ShowButtonFavourite from '../../components/UI/ShowButtonFavourite';
 import { PLUG_IMAGE_MOVIE_CARD } from '../../CONSTANTS';

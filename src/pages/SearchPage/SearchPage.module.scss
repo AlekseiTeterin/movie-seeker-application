@@ -1,0 +1,14 @@
+.name {
+  text-align: center;
+  font-size: 50px;
+  font-family: 'Kalam', cursor;
+  color: var(--layout-text-color);
+}
+.searchPage {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-size: 30px;
+}

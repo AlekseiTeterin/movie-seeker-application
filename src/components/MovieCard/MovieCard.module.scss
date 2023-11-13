@@ -2,7 +2,7 @@
   position: relative;
   width: 270px;
   height: 400px;
-  margin-top: 100px;
+  margin-top: 40px;
 }
 
 .posterPlus {
@@ -40,7 +40,13 @@
 }
 
 .heart {
-  z-index: 1;
+  position: absolute;
+  display: flex;
+  margin-left: 205px;
+  margin-top: 10px;
+  background: none;
+  border: none;
+  z-index: 100;
   & :hover {
     width: 45px;
     opacity: 1;

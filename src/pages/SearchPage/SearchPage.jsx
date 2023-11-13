@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import style from './SearchPage.module.css';
+import style from './SearchPage.module.scss';
 import MovieCard from '../../components/MovieCard/MovieCard';
 import { useGetMovieByNameQuery } from '../../store/api/movieApi';
 

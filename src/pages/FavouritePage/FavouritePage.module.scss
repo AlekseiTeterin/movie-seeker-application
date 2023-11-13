@@ -1,0 +1,14 @@
+.favourite {
+  text-align: center;
+  color: var(--layout-text-color);
+  font-size: 20px;
+  margin: 0;
+}
+.favList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-size: 30px;
+}
