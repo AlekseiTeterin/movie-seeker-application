@@ -5,24 +5,28 @@
 }
 .btnAdd {
     border-radius: 10px;
-    width: 80%;
+    width: 60%;
     height: 5vh;
-    background-color: rgb(181, 66, 203);
+    background-color: var(--add-button-color);
+    color: var(--main-card-text-color);
     font-size: 15px;
 }
 
 .btnDel {
     border-radius: 10px;
-    width: 80%;
+    width: 60%;
     height: 5vh;
-    background-color: rgb(246, 42, 42);
+    background-color: var(--remove-button-color);
+    color: var(--main-card-text-color);
     font-size: 15px;
 }
 
 .btnAdd:hover {
     cursor: pointer;
+    opacity: 0.9;
 }
 
 .btnDel:hover {
     cursor: pointer;
+    opacity: 0.9;
 }

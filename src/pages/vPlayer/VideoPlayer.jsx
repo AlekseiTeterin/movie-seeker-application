@@ -3,6 +3,7 @@ import React, { useRef } from 'react';
 import Container from '@mui/material/Container';
 import ReactPlayer from 'react-player';
 import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import screenfull from 'screenfull';
 import ControlIcons from './playerComponents/ControlIcons';
 import styles from './vPlayer.module.css';
@@ -20,6 +21,10 @@ import {
 import secondsToRequiredFormat from '../../utils/secondsToRequiredFormat';
 
 function VideoPlayer() {
+  const params = useParams();
+  const moviePathName = params.path;
+
+  console.log('adres', moviePathName);
   const dispatch = useDispatch();
   const isPlaying = useSelector((state) => state.player.isPlaying);
   const mute = useSelector((state) => state.player.mute);
@@ -106,7 +111,7 @@ function VideoPlayer() {
           <ReactPlayer
             width='100%'
             height='100%'
-            url='https://www.youtube.com/watch?v=Z8qU0GdW88Q'
+            url='https://www.youtube.com/embed/Wi3wPg4IaeA'
             ref={playerRef}
             playing={isPlaying}
             volume={volume}

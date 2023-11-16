@@ -38,5 +38,6 @@
   &:hover {
     box-shadow: 0 0 0 2px var(--layout-text-color);
     transition: 0.5s;
+    cursor: pointer;
   }
 }

@@ -26,7 +26,7 @@ function App() {
                     <Route path='/search/:query' element={<SearchPage />} />
                     <Route path='/history' element={<HistoryPage />} />
                     <Route path='/favourite' element={<FavouritePage />} />
-                    <Route path='/vPlayer' element={<VideoPlayer />} />
+                    <Route path='/vPlayer/:path' element={<VideoPlayer />} />
                 </Routes>
             </Suspense>
         </div>

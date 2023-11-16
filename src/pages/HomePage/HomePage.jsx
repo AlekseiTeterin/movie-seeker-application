@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import style from './HomePage.module.css';
 import MovieCard from '../../components/MovieCard/MovieCard';
 import Search from '../../components/Search/Search';
@@ -19,7 +18,7 @@ function HomePage() {
       <div>
         <Search />
       </div>
-      <Link to='/vPlayer'>VideoPlayer</Link>
+      
       <div className={style.home}>
         {data.docs.map((movie) => (
           <MovieCard key={movie.id} movieId={movie.id} />
