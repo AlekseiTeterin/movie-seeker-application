@@ -78,7 +78,6 @@ function ControlIcons({
   movieName,
 }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  console.log('name: ', movieName);
   const handlePopOver = (event) => {
     setAnchorEl(event.currentTarget);
   };
