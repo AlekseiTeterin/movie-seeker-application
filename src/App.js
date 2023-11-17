@@ -1,5 +1,5 @@
-import { React, lazy, Suspense} from 'react';
-import './App.css';
+import { React, lazy, Suspense } from 'react';
+import './App.scss';
 import { Routes, Route } from 'react-router-dom';
 import BaseLayout from './components/BaseLayout/BaseLayout';
 
@@ -10,9 +10,10 @@ const RegisterPage = lazy(() => import('./pages/RegisterPage/RegisterPage'));
 const SearchPage = lazy(() => import('./pages/SearchPage/SearchPage'));
 const HistoryPage = lazy(() => import('./pages/HistoryPage/HistoryPage'));
 const FavouritePage = lazy(() => import('./pages/FavouritePage/FavouritePage'));
+const VideoPlayer = lazy(() => import('./pages/vPlayer/VideoPlayer'));
 
 function App() {
-    
+
     return (
         <div className='App'>
             <BaseLayout />
@@ -25,6 +26,7 @@ function App() {
                     <Route path='/search/:query' element={<SearchPage />} />
                     <Route path='/history' element={<HistoryPage />} />
                     <Route path='/favourite' element={<FavouritePage />} />
+                    <Route path='/vPlayer/:path' element={<VideoPlayer />} />
                 </Routes>
             </Suspense>
         </div>

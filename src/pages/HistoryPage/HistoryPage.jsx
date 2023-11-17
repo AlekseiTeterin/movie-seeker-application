@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
-import style from './HistoryPage.module.css';
+import style from './HistoryPage.module.scss';
 import useHistory from '../../hooks/useHistory';
 import { IsAuthContext } from '../../store/IsAuthContext';
 import { removeHistory } from '../../store/slices/historySlice';

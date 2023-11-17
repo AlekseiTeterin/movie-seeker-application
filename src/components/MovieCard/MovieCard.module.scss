@@ -1,0 +1,86 @@
+.smallCard {
+  position: relative;
+  width: 270px;
+  height: 400px;
+  margin-top: 40px;
+}
+
+.posterPlus {
+  height: 370px;
+  border: 5px solid var(--border-color);
+  border-radius: 20px;
+}
+
+.poster {
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+}
+
+.ratingAndFavourite {
+  position: absolute;
+  margin-left: 10px;
+  padding-top: 10px;
+  width: 240px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 3;
+}
+
+.rating {
+  padding-top: 5px;
+  width: 75px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: var(--border-color);
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--rating-text-color);
+}
+
+.heart {
+  position: absolute;
+  display: flex;
+  margin-left: 205px;
+  margin-top: 10px;
+  background: none;
+  border: none;
+  z-index: 100;
+  & :hover {
+    width: 45px;
+    opacity: 1;
+  }
+}
+
+.description {
+  display: block;
+  width: 255px;
+  margin-left: 10px;
+  justify-content: space-between;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.title {
+  height: 22px;
+  font-size: 19px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: 600;
+  color: var(--card-info-text-color);
+  text-align: left;
+}
+
+.release {
+  display: flex;
+  flex-direction: row;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--card-info-text-color);
+}
+
+.smallCard :hover {
+  opacity: 0.9;
+}

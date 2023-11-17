@@ -9,3 +9,5 @@ export const PLUG_IMAGE_MOVIE_CARD =
 export const NAME_FIELD_TEXT = 'только латинские буквы, цифры и _';
 export const PASSWORD_FIELD_TEXT =
     'пароль должен состоять из латинских букв (минимум одна заглавная и одна строчная), минимум 1 символа или цифры';
+export const SAFE_VOLUME_LEVEL = 20;
+export const PLAYER_SPEED_RATE_VALUES_ARRAY = [0.5, 1, 1.5, 2];

@@ -1,0 +1,19 @@
+.register {
+  font-size: 30px;
+}
+
+.title {
+  text-align: center;
+  color: var(--layout-text-color);
+}
+
+.alternative {
+  color: var(--layout-text-color);
+  text-align: center;
+}
+
+.link {
+  color: var(--main-card-text-color);
+  text-decoration: underline;
+  cursor: pointer;
+}

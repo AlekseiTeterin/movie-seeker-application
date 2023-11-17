@@ -6,7 +6,7 @@ import propTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import NameField from './FormsComponents/NameField';
 import PasswordField from './FormsComponents/PasswordField';
-import style from './FormsStyle.module.css';
+import style from './FormsStyle.module.scss';
 
 function SignInForm({ handleSubmit, buttonName }) {
     const [name, setName] = useState('');

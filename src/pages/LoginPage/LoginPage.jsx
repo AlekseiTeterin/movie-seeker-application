@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import style from './LoginPage.module.css';
+import style from './LoginPage.module.scss';
 import SignIn from '../../components/SignIn/SignIn';
 
 function LoginPage() {

@@ -4,6 +4,7 @@ import localStorageMiddleware from './localStorageMiddleware';
 import { currentUser } from './slices/currentUserSlice';
 import { favourite } from './slices/favouriteSlice';
 import { history } from './slices/historySlice';
+import { player } from './slices/playerSlice';
 
 const store = configureStore({
     reducer: {
@@ -11,6 +12,7 @@ const store = configureStore({
         currentUser,
         favourite,
         history,
+        player,
     },
 
     middleware: (getDefaultMiddleware) =>

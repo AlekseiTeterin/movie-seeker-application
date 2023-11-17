@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import style from './MoviePage.module.css';
+import style from './MoviePage.module.scss';
 import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary';
 import ShowButtonFavourite from '../../components/UI/ShowButtonFavourite';
 import { PLUG_IMAGE_MOVIE_CARD } from '../../CONSTANTS';
@@ -63,17 +63,13 @@ function MoviePage() {
                             ))}
                         </div>
                     </div>
-
+                    
                     <div>
                         {data.videos !== undefined &&
                             data.videos.trailers[0] !== undefined && (
-                                <Link
-                                    to={data.videos?.trailers[0]?.url}
-                                    className={style.link}
-                                >
-                                    Смотреть трейлер
-                                </Link>
+                                <Link to={`/vPlayer/${movieId}`} className={style.link}>Смотреть трейлер</Link>
                             )}
+                            
                     </div>
                 </div>
             </div>

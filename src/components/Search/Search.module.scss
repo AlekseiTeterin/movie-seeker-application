@@ -4,34 +4,40 @@
 
 .searchAndButton {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 
 .textField {
     border-radius: 10px;
-    background-color: rgb(221, 250, 250);
+    margin-left: 20vw;
+    background-color: var(--forms-bg-color);
     height: 56px;
-    width: 70vw;
+    width: 45vw;
     font-size: larger;
 }
 
 .btn {
-    border: 1px solid blue;
+    border: 1px solid var(--border-color);
     text-align: center;
-    padding-top: 9px;
+    margin-left: 5vw;
+    padding-top: 14px;
     font-size: 20px;
+    font-weight: 500;
     border-radius: 10px;
-    width: 14vw;
+    width: 10vw;
     height: 56px;
-    background-color: rgb(136, 162, 214);
+    background-color: var(--add-button-color);
+
+    &:hover{
+        opacity: 0.9;
+    }
 }
 
 .dropList {
     position: absolute;
     width: 70vw;
     font-weight: 400;
-    padding-left: 10vw;
-    margin-left: 4vw;
+    margin-left: 19vw;
     margin-top: 1vh;
     left: 0;
     right: 0;
@@ -42,5 +48,9 @@
 
 .listItems {
     font-size: 20px;
-    font-family: 'Kalam', cursive;
+    color: var(--main-card-text-color);
+    font-family: 'Kalam';
+    &:hover{
+        font-weight: bolder;
+    }
 }

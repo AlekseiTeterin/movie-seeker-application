@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+.light-mode {
+  --main-page-bg-image: url('./images/backgroundBetonTekstura.jpg');
+  --layout-text-color: #0f4b70;
+  --input-bg-color: #ebebeb;
+  --forms-bg-color: rgb(181, 190, 199, 0.6);
+  --border-color: #2d6ee7bf;
+  --rating-text-color: rgb(251, 243, 3);
+  --card-info-text-color: rgb(34, 32, 32);
+  --history-text-color: #07081c;
+  --user-name-color: #292c31;
+  --main-card-text-color: #060b0f;
+  --remove-button-color: #742d2d;
+  --add-button-color: #93bcce;
+  --trailer-link-color: #094ac1;
+}
+
+.dark-mode {
+  --main-page-bg-image: url('./images/backgroundDark.jpg');
+  --layout-text-color: #ffffff;
+  --input-bg-color: #2c38459a;
+  --forms-bg-color: rgb(84, 101, 107, 0.6);
+  --border-color: #282c3dbf;
+  --rating-text-color: #fbf303;
+  --card-info-text-color: rgb(251 249 240);
+  --history-text-color: #e2f2ff;
+  --user-name-color: #292c31;
+  --main-card-text-color: #e2f2ff;
+  --remove-button-color: #582d2d;
+  --add-button-color: #7e8e95;
+  --trailer-link-color: #86b0ff;
+}
