@@ -8,7 +8,7 @@
     justify-content: center;
     align-items: center;
     height: 40px;
-    background-color: rgb(70, 70, 172);
+    background-color: none;
   }
   
   .headerText {
@@ -17,12 +17,17 @@
     font-weight: 800;
     font-family: Georgia, 'Times New Roman', Times, serif;
     padding-top: 5px;
-    padding-bottom: 5px;
+    padding-bottom: 25px;
   }
 
   .playerDiv {
-    width:100%;
-    position: relative;
+      position: relative;
+      padding-top: 56.25%; /* 720 / 1280 = 0.5625 */
   }
 
+  .reactPlayer {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
   

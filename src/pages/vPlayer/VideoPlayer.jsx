@@ -8,6 +8,7 @@ import screenfull from 'screenfull';
 import ControlIcons from './playerComponents/ControlIcons';
 import styles from './vPlayer.module.css';
 import { SAFE_VOLUME_LEVEL } from '../../CONSTANTS';
+import { useGetMovieByIdQuery } from '../../store/api/movieApi';
 import {
   changeMutingStatus,
   changePlayingStatus,
@@ -21,10 +22,6 @@ import {
 import secondsToRequiredFormat from '../../utils/secondsToRequiredFormat';
 
 function VideoPlayer() {
-  const params = useParams();
-  const moviePathName = params.path;
-
-  console.log('adres', moviePathName);
   const dispatch = useDispatch();
   const isPlaying = useSelector((state) => state.player.isPlaying);
   const mute = useSelector((state) => state.player.mute);
@@ -32,9 +29,14 @@ function VideoPlayer() {
   const seeking = useSelector((state) => state.player.seeking);
   const played = useSelector((state) => state.player.played);
   const playerbackRate = useSelector((state) => state.player.playerBackRate);
-
   const playerRef = useRef(null);
   const playerDivRef = useRef(null);
+  const params = useParams();
+
+  const movieId = params.path;
+  const { data } = useGetMovieByIdQuery(movieId);
+  const moviePathName = data?.videos?.trailers[0]?.url || 'https://www.youtube.com/watch?v=wdCPyFj8lm0';
+  const movieMainName = data?.name || 'Manhattan Queen';
 
   const currentPlayerTime = playerRef.current
     ? playerRef.current.getCurrentTime()
@@ -106,12 +108,13 @@ function VideoPlayer() {
       <header className={styles.headerSection}>
         <p className={styles.headerText}>Movie-seeker Video Player</p>
       </header>
-      <Container maxWidth='md'>
+      <Container maxWidth='lg'>
         <div className={styles.playerDiv} ref={playerDivRef}>
           <ReactPlayer
+            className={styles.reactPlayer}
             width='100%'
             height='100%'
-            url='https://www.youtube.com/embed/Wi3wPg4IaeA'
+            url={moviePathName}
             ref={playerRef}
             playing={isPlaying}
             volume={volume}
@@ -138,6 +141,7 @@ function VideoPlayer() {
           playerbackRate={playerbackRate}
           playRate={handlePlayerRate}
           fullScreenMode={handleFullScreenMode}
+          movieName = {movieMainName}
         />
       </Container>
     </>

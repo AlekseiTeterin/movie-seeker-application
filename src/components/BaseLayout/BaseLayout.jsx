@@ -8,27 +8,23 @@ import { setCurrentUser } from '../../store/slices/currentUserSlice';
 import getCurrentUserFromLS from '../../utils/getCurrentUserFromLS';
 
 function BaseLayout() {
-    const dispatch = useDispatch();
-    const user = getCurrentUserFromLS();
-    dispatch(setCurrentUser(user));
+  const dispatch = useDispatch();
+  const user = getCurrentUserFromLS();
+  dispatch(setCurrentUser(user));
 
-    return (
-        <div className={style.header}>
-            <nav className={style.navigationBar}>
-                <NavLink to='/'>
-                    <div className={style.imgWrapper}>
-                        <img
-                            className={style.img}
-                            src={film}
-                            alt='movie-icon'
-                        />
-                        <div className={style.logoText}>фильмотека</div>
-                    </div>
-                </NavLink>
-                <IsAuth />
-            </nav>
-        </div>
-    );
+  return (
+    <div className={style.header}>
+      <nav className={style.navigationBar}>
+        <NavLink to='/'>
+          <div className={style.imgWrapper}>
+            <img className={style.img} src={film} alt='movie-icon' />
+            <div className={style.logoText}>фильмотека</div>
+          </div>
+        </NavLink>
+        <IsAuth />
+      </nav>
+    </div>
+  );
 }
 
 export default BaseLayout;
